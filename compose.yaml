@@ -1,0 +1,22 @@
+services:
+  scotia-compass:
+    build: .
+    ports:
+      - "127.0.0.1:4317:4317"
+    env_file: .env
+    environment:
+      HOST: 0.0.0.0
+      SCOTIA_DATA_DIR: /app/data
+    volumes:
+      - scotia_connections:/app/data
+    restart: unless-stopped
+    init: true
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+volumes:
+  scotia_connections:

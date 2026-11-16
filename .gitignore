@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+connections.local.json
+test-results/
+playwright-report/
+artifacts/
+*.log
+.openai/*.local.json
+data/
